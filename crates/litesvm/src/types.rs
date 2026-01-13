@@ -12,6 +12,7 @@ use {
 
 #[derive(Debug, Default, Clone, PartialEq)]
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
+#[serde(rename_all = "camelCase")]
 pub struct TransactionMetadata {
     #[cfg_attr(feature = "serde", serde(with = "crate::utils::serde_with_str"))]
     pub signature: Signature,
@@ -30,6 +31,7 @@ impl TransactionMetadata {
 
 #[derive(Debug, Default, Clone, PartialEq)]
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
+#[serde(rename_all = "camelCase")]
 pub struct SimulatedTransactionInfo {
     pub meta: TransactionMetadata,
     pub post_accounts: Vec<(Pubkey, AccountSharedData)>,
@@ -37,6 +39,7 @@ pub struct SimulatedTransactionInfo {
 
 #[derive(Debug, Clone, PartialEq)]
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
+#[serde(rename_all = "camelCase")]
 pub struct FailedTransactionMetadata {
     pub err: TransactionError,
     pub meta: TransactionMetadata,
